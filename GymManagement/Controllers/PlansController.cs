@@ -6,13 +6,14 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GymManagement.Controllers
 {
+    
     public class PlansController : Controller
     {
         private readonly IPlanRepository _planRepo;
-
-        public PlansController()
+        
+        public PlansController(IPlanRepository planRepo)
         {
-            _planRepo = new PlanRepository();
+            _planRepo = planRepo;
         }
 
         //Index

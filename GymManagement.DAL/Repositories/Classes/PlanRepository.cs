@@ -15,9 +15,9 @@ namespace GymManagement.DAL.Repositories.Classes
 
         private readonly GymDbContext _dbContext;
 
-        public PlanRepository()
+        public PlanRepository(GymDbContext dbcontext)
         {
-            _dbContext = new GymDbContext();
+            _dbContext = dbcontext;
         }
 
         public async Task<int> AddAsync(Plan plan, CancellationToken ct = default)
