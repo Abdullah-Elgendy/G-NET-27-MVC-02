@@ -1,4 +1,4 @@
-﻿namespace GymManagement.DAL.Models
+﻿namespace GymManagement.DAL.Data.Models
 {
     public abstract class BaseEntity
     {

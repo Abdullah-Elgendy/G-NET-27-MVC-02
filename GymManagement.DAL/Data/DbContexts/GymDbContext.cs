@@ -1,8 +1,8 @@
-﻿using GymManagement.Models;
+﻿using GymManagement.DAL.Data.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
-namespace GymManagement.DbContexts
+namespace GymManagement.DAL.Data.DbContexts
 {
     public class GymDbContext : DbContext
     {
@@ -20,5 +20,13 @@ namespace GymManagement.DbContexts
         }
 
         public DbSet<Plan> Plans { get; set; }
+        public DbSet<Trainer> Trainers { get; set; }
+        public DbSet<Member> Members { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<HealthRecord> HealthRecords { get; set; }
+        public DbSet<MemberPlans> MemberPlans { get; set; }
+        public DbSet<MemberSessions> MemberSessions { get; set; }
+        public DbSet<Session> Sessions { get; set; }
+
     }
 }

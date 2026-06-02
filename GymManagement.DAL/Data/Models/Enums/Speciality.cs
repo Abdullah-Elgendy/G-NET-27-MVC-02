@@ -1,4 +1,4 @@
-﻿namespace GymManagement.DAL.Models.Enums
+﻿namespace GymManagement.DAL.Data.Models.Enums
 {
     public enum Speciality
     {

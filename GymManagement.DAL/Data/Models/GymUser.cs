@@ -1,7 +1,7 @@
-﻿using GymManagement.DAL.Models.Enums;
+﻿using GymManagement.DAL.Data.Models.Enums;
 using Microsoft.EntityFrameworkCore;
 
-namespace GymManagement.DAL.Models
+namespace GymManagement.DAL.Data.Models
 {
     public class GymUser : BaseEntity
     {

@@ -1,4 +1,4 @@
-namespace GymManagement.Models
+namespace GymManagement.DAL.Data.Models
 {
     public class ErrorViewModel
     {

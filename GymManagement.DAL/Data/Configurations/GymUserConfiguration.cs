@@ -1,8 +1,8 @@
-﻿using GymManagement.DAL.Models;
+﻿using GymManagement.DAL.Data.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace GymManagement.DAL.Configurations
+namespace GymManagement.DAL.Data.Configurations
 {
     public class GymUserConfiguration<T> : IEntityTypeConfiguration<T> where T : GymUser
     {
@@ -19,6 +19,9 @@ namespace GymManagement.DAL.Configurations
             builder.Property(x => x.Phone)
                 .HasColumnType("VARCHAR")
                 .HasMaxLength(11);
+
+            builder.Property(x => x.Gender)
+                .HasConversion<string>();
 
             builder.ToTable(tb => tb.HasCheckConstraint("EmailCheck", "Email Like '_%@_%._%'"));
             builder.ToTable(tb => tb.HasCheckConstraint("PhoneCheck", "Phone Like '01[0125]%'"));

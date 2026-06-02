@@ -1,4 +1,4 @@
-﻿namespace GymManagement.DAL.Models
+﻿namespace GymManagement.DAL.Data.Models
 {
     public class HealthRecord : BaseEntity
     {
@@ -8,5 +8,12 @@
         public string BloodType { get; set; } = default!;
 
         //change UpdatedAt column name to LastUpdated 
+
+        #region Relationships
+
+        public Member Member { get; set; } = default!;
+        public int MemberId { get; set; }
+
+        #endregion
     }
 }
