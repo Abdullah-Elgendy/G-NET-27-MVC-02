@@ -3,24 +3,25 @@ using GymManagement.DAL.Repositories.Interfaces;
 using GymManagement.DAL.Data.DbContexts;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using GymManagement.DAL.Data.Models;
 
 namespace GymManagement.Controllers
 {
     
     public class PlansController : Controller
     {
-        private readonly IPlanRepository _planRepo;
+        private readonly IGenericRepository<Plan> _planRepo;
         
-        public PlansController(IPlanRepository planRepo)
+        public PlansController(IGenericRepository<Plan> planRepo)
         {
             _planRepo = planRepo;
         }
 
         //Index
         // GET: BaseUrl/Plans/Index -> Index view -> List of all plans
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(CancellationToken ct)
         {
-            var plans = await _planRepo.GetAllAsync();
+            var plans = await _planRepo.GetAllAsync(false, ct);
 
             return View(plans);
         }
@@ -28,9 +29,9 @@ namespace GymManagement.Controllers
 
         // Details
         // GET: BaseUrl/Plans/Details/{Id}-> Detail view -> Details about plan
-        public async Task<IActionResult> Details(int Id)
+        public async Task<IActionResult> Details(int Id, CancellationToken ct)
         {
-            var plan = await _planRepo.GetByIdAsync(Id);
+            var plan = await _planRepo.GetByIdAsync(Id, ct);
 
             if (plan is null)
             return RedirectToAction(nameof(Index));
